@@ -1,0 +1,63 @@
+.auth{
+    background-image: url('../../assets/images/bg-auth.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+background-position: center center;
+width: 100vw;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+.auth-card{
+    width: 50%;
+    background-color: #fff;
+    border-radius: 16px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
+    padding:16px 20px
+}
+
+.logoText img{
+    width: 50%;
+}
+.auth-card h3{
+    color:#494949;
+}
+.auth-card p{
+    color:rgba(73, 73, 73, 0.6)
+}
+
+.links{
+    display: flex;
+justify-content: space-between;
+
+}
+.links a{text-decoration: none;}
+
+/* #3A3A3D */
+.text-darkGray{
+    color: #3A3A3D;
+}
+.text-green{
+    color:#4AA35A;
+}
+.app-primary-button{
+    color:#fff;
+    background-color: #4AA35A;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    width:100%;
+    border:none;
+    padding: 10px;
+    margin-top: 10px;
+}
+.app-primary-button:disabled{
+    background-color: #494949;
+}

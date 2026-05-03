@@ -1,0 +1,144 @@
+<div class="auth">
+  <div class="auth-card">
+    <div class="logoText text-center">
+      <img src="../../assets/images/logoText.png" alt="logo" class="logo" />
+    </div>
+    <div>
+      <h3>Register</h3>
+      <p>Welcome Back! Please enter your details</p>
+    </div> 
+    <div>
+        <p class="text-danger" *ngIf="errorMsg">{{errorMsg}}</p>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm)">
+        <div class="form-grid row">
+
+             <p class="text-danger" *ngIf="registerForm.get('userName')?.errors?.['pattern']">The username must contain characters, end with numbers without spaces and not be greater than 8 characters.</p>
+
+              <!----1st  column------->
+        
+        <div class="col-6">     
+              <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-mobile-screen"></i></span>
+          <input
+          formControlName="userName"
+            type="text"
+            class="form-control"
+            placeholder="UserName"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+        <div  *ngIf="registerForm.get('userName')?.errors && registerForm.get('userName')?.touched">
+             <p class="text-danger" *ngIf="registerForm.get('userName')?.errors?.['required']">UserName is required</p>
+          
+            </div>
+           
+            <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-earth-europe"></i></span>
+          <input
+          formControlName="country"
+            type="text"
+            class="form-control"
+            placeholder="Country"
+            aria-label="country"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+        <div  *ngIf="registerForm.get('country')?.errors && registerForm.get('country')?.touched">
+             <p class="text-danger" *ngIf="registerForm.get('country')?.errors?.['required']">Country is required</p>
+        </div>
+  <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
+          <input
+          formControlName="password"
+            type="password"
+            class="form-control"
+            placeholder="Password"
+            aria-label="Password"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+        <div  *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched">
+             <p class="text-danger" *ngIf="registerForm.get('password')?.errors?.['required']">Password is required</p>
+             <p class="text-danger" *ngIf="registerForm.get('password')?.errors?.['pattern']">Password is invalid</p>
+        </div>
+     
+         </div>
+
+    <!----2nd  column------->
+        <div class="col-6">
+              <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-at"></i></span>
+          <input
+          formControlName="email"
+            type="email"
+            class="form-control"
+            placeholder="Enter your E-mail"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+        <div  *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched">
+             <p class="text-danger" *ngIf="registerForm.get('email')?.errors?.['required']">Email is required</p>
+             <p class="text-danger" *ngIf="registerForm.get('email')?.errors?.['email']">Email is invalid</p>
+        </div>
+      
+          <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-phone"></i></span>
+          <input
+          formControlName="phoneNumber"
+            type="text"
+            class="form-control"
+            placeholder="phoneNumber"
+            aria-label="PhoneNumber"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+        <div  *ngIf="registerForm.get('phoneNumber')?.errors && registerForm.get('phoneNumber')?.touched">
+             <p class="text-danger" *ngIf="registerForm.get('phoneNumber')?.errors?.['required']">phoneNumber is required</p>
+             <p class="text-danger" *ngIf="registerForm.get('phoneNumber')?.errors?.['pattern']">phoneNumber is invalid</p>
+        </div>
+
+      
+
+ <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
+          <input
+          formControlName="confirmPassword"
+            type="password"
+            class="form-control"
+            placeholder="Confirm-Password"
+            aria-label="confirmPassword"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+        <div  *ngIf="registerForm.get('confirmPassword')?.errors && registerForm.get('confirmPassword')?.touched">
+             <p class="text-danger" *ngIf="registerForm.get('confirmPassword')?.errors?.['required']">Password is required</p>
+             <p class="text-danger" *ngIf="registerForm.get('confirmPassword')?.value!== registerForm.get('password')?.value">Passwords do not match</p>
+        </div>
+
+        </div>
+        </div>
+
+        <!---profile image----->
+     <div class="input-group mb-3">
+  <label class="input-group-text" for="inputGroupFile01">Upload</label>
+  <input type="file" formControlName="profileImage" class="form-control" id="inputGroupFile01"  (change)="handleUploading($event)">
+</div>
+  <div  *ngIf="registerForm.get('profileImage')?.errors && registerForm.get('profileImage')?.touched">
+             <p class="text-danger" *ngIf="registerForm.get('profileImage')?.errors?.['required']">profileImage is required</p>
+             <p class="text-danger" *ngIf="registerForm.get('profileImage')?.errors?.['pattern']">profileImage is invalid</p>
+        </div>
+      
+
+        <div class="links">
+          <a routerLink="/auth" class="text-green">Login Now?</a>
+        </div>
+
+<div class="text-center">
+        <button class="app-primary-button " [disabled]="!registerForm.valid">Register</button>
+</div>
+      </form>
+    </div>
+  </div>
+</div>
