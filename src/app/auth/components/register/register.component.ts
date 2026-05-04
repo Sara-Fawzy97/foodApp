@@ -19,7 +19,7 @@ export class RegisterComponent {
       Validators.required,
       Validators.pattern(/^(?=.{1,8}$)[A-Za-z]+[0-9]+$/),
     ]),
-    country: new FormControl(null, [Validators.required]),
+    country: new FormControl(null, Validators.required),
     email: new FormControl(null, [Validators.required, Validators.email]),
     phoneNumber: new FormControl(null, [
       Validators.required,

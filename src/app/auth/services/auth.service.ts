@@ -23,4 +23,7 @@ export class AuthService {
   resetPasswordRequest(data:LoginData):Observable<any>{
      return this.http.post('Users/Reset/Request',data)
   }
+  resetPassword(data:LoginData):Observable<any>{
+    return this.http.post('Users/Reset',data)
+  }
 }

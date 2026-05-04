@@ -35,6 +35,7 @@ this.authService.login(data.value).subscribe({
   error:(err)=>{
     this.errorMsg=err.error.message
     console.log(this.errorMsg);
+    this.toastr.error(this.errorMsg, 'Error');
   },
   complete:()=>{
     this.errorMsg=""
