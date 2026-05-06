@@ -8,12 +8,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from "@angular/common/http";
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { VerfiyAccountComponent } from './components/verfiy-account/verfiy-account.component';
 @NgModule({
   declarations: [
     AuthComponent,
     RegisterComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
+    VerfiyAccountComponent,
   
   ],
   imports: [

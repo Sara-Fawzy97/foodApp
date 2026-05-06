@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormGroup,FormControl, Validators } from '@angular/forms';
 import { AuthService } from './services/auth.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -11,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 export class AuthComponent {
  
   errorMsg:string=''
-
+  router=inject(Router)
   toastr=inject(ToastrService)
  authService=inject(AuthService)
 
@@ -36,6 +37,7 @@ this.authService.login(data.value).subscribe({
     this.errorMsg=err.error.message
     console.log(this.errorMsg);
     this.toastr.error(this.errorMsg, 'Error');
+    err.error.statusCode== 401 ? this.router.navigateByUrl('/auth/verify-account'):null 
   },
   complete:()=>{
     this.errorMsg=""

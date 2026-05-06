@@ -31,12 +31,13 @@ submit(data:FormGroup){
   next:(res)=>{
           console.log(res);
         },
-    error:(err)=>{
+  error:(err)=>{
       console.log(err);
       this.toastr.error(err.error.message, "Error");
-    }
-    ,complete:()=> {
+    },
+  complete:()=> {
       console.log('Request completed');
+      localStorage.setItem('email',data.value.email)
     this.toastr.success("Password reset request sent successfully! Please check your email for further instructions.", "Success");
       this.router.navigateByUrl('/auth/reset-password')
 
