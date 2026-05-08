@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { LoginData } from '../models/auth';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,15 @@ export class AuthService {
 
   constructor( private http:HttpClient) { }
 // baseUrl="https://u pskilling-egypt.com:3006/api/v1/"
+
+//to get user Info from token (decoded Token)
+  getProfile(){
+    const  token:any =localStorage.getItem('token')
+    const decoded:any = jwtDecode(token);
+    console.log(decoded)
+    localStorage.setItem('role',decoded.userGroup)
+  }
+
 
   login(data:LoginData):Observable<any>{
     return this.http.post('users/login',data)

@@ -30,8 +30,9 @@ onSubmit(data:FormGroup){
 
 this.authService.login(data.value).subscribe({
   next:(res) => {
-    console.log(res);
     localStorage.setItem('token',res.token)
+    this.authService.getProfile()
+
     // Object.keys(res).forEach(key=>{
     //   const value= res[key]
     //   localStorage.setItem(key,value)
@@ -47,6 +48,8 @@ this.authService.login(data.value).subscribe({
   complete:()=>{
     this.errorMsg=""
     this.toastr.success('You are logged in successfully!', 'Welcome Back');
+       this.router.navigateByUrl('/dashboard');
+
 
   }
 })
