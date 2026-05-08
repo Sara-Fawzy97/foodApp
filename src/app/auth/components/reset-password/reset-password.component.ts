@@ -44,12 +44,12 @@ export class ResetPasswordComponent {
   }
 )
 
-  confirmedPassowrd(s:AbstractControl){
-       const password=s.get('password')?.value
-       const confirmedPassword=s.get('confirmPasssword')?.value
+  // confirmedPassowrd(s:AbstractControl){
+  //      const password=s.get('password')?.value
+  //      const confirmedPassword=s.get('confirmPasssword')?.value
 
-        password ===confirmedPassword? null :{passwordMismatch:true}
-  }
+  //       password ===confirmedPassword? null :{passwordMismatch:true}
+  // }
 
 submitForm(data:FormGroup){
     // console.warn(data.value)

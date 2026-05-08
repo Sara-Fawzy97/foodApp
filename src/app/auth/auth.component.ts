@@ -31,7 +31,12 @@ onSubmit(data:FormGroup){
 this.authService.login(data.value).subscribe({
   next:(res) => {
     console.log(res);
- 
+    localStorage.setItem('token',res.token)
+    // Object.keys(res).forEach(key=>{
+    //   const value= res[key]
+    //   localStorage.setItem(key,value)
+    // }
+    // )
   },
   error:(err)=>{
     this.errorMsg=err.error.message

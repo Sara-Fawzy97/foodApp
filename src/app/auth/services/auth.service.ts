@@ -26,4 +26,8 @@ export class AuthService {
   resetPassword(data:LoginData):Observable<any>{
     return this.http.post('Users/Reset',data)
   }
+
+   verifyAccount(data:LoginData):Observable<any>{
+    return this.http.put('Users/verify',data)
+  }
 }
