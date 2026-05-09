@@ -1,0 +1,29 @@
+section{
+     width: 100%;
+    height: 100%;
+    background-color: #1F263E;
+    border-top-right-radius:50px ;
+    margin-top: 5px;
+   
+}
+section img{
+    padding-top:20px;
+
+}
+
+ul{
+    padding:0
+}
+a{
+    color:#fff;
+    text-decoration: none;
+display: block;
+   width: 100%;
+    padding: 8px 15px;
+    margin: 15px 0;
+}
+
+a:hover, .active{
+    background-color: #0092471A;
+    border-left:4px solid #009247
+}

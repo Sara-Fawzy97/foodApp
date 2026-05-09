@@ -1,0 +1,47 @@
+section:first-of-type {
+  background-image: url("../../../assets/images/bg-green.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  -ms-border-radius: 16px;
+  -o-border-radius: 16px;
+  background-color: #009247;
+}
+
+section:first-of-type span {
+  color: #dfe0e0;
+  font-size: 32px;
+  font-weight: 400;
+}
+
+img {
+  width: 100%;
+}
+
+section:nth-child(2) {
+  background-color: #f0ffef;
+  color: #1f263e;
+  padding: 50px 20px;
+  margin-top: 20px;
+  border-radius: 16px;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  -ms-border-radius: 16px;
+  -o-border-radius: 16px;
+}
+
+section:nth-child(2) span {
+  color: #009247;
+}
+.bg-green {
+  color: #009247;
+}
+button {
+  background-color: #009247;
+  color: #fff;
+  padding: 8px 27px;
+}

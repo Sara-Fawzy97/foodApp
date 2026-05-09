@@ -18,6 +18,7 @@ export class AuthService {
     const decoded:any = jwtDecode(token);
     console.log(decoded)
     localStorage.setItem('role',decoded.userGroup)
+    localStorage.setItem('userName',decoded.userName)
   }
 
 

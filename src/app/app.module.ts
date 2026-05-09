@@ -8,21 +8,24 @@ import { GlobalInterceptor } from './core/interceptor/global.interceptor';
 import { HttpClientModule } from '@angular/common/http';
 import{ToastrModule} from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeComponent } from './shared/home/home.component';
+import { ɵInternalFormsSharedModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+  
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ToastrModule.forRoot(
-      { timeOut: 10000,
-    positionClass: 'toast-top-center',}
-    ), // ToastrModule added
-    BrowserAnimationsModule, // required animations module
-  ],
+    ToastrModule.forRoot({ timeOut: 10000,
+        positionClass: 'toast-top-center', }), // ToastrModule added
+    BrowserAnimationsModule,
+    ɵInternalFormsSharedModule
+],
   providers: [{provide:HTTP_INTERCEPTORS, useClass: GlobalInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
