@@ -1,13 +1,14 @@
 <section>
     <div>
-        <img clas="w-75" src="../../../assets/images/logoNoText.png" alt="">
+        <img class="" src="../../../assets/images/logoNoText.png" alt="">
     </div>
 
     <div class="mt-5">
         <ul>
             <ng-container *ngFor="let item of list">
-                <li class=" " *ngIf="item.isActive"><a [routerLink]="item.navLink" routerLinkActive="active"><span class="me-3"> <i [ngClass]='item.icon '></i></span>{{item.title}}</a></li>
+                <li class=" " *ngIf="item.isActive"><a [routerLink]="item.navLink" routerLinkActive="active"> <i [ngClass]='item.icon '></i><span class="ms-3">{{item.title}}</span></a></li>
             </ng-container>
+            <li (click)="logOut()"><a routerLink="/auth"> <i class="fa-solid fa-right-from-bracket fa-lg"></i><span class="ms-3">Log Out</span></a></li>
         </ul>
         
     </div>

@@ -1,26 +1,51 @@
 section{
-     width: 100%;
+    width: 70px;
     height: 100%;
     background-color: #1F263E;
     border-top-right-radius:50px ;
     margin-top: 5px;
-   
+    transition: all 1s   ;
+    -webkit-transition: all 1s   ;
+    -moz-transition: all 1s   ;
+    -ms-transition: all 1s   ;
+    -o-transition: all 1s   ;
 }
+
 section img{
     padding-top:20px;
+    width:100%
 
 }
-
+section span{
+display: none;
+ 
+}
+section:hover{
+    width:230px;
+    transition: all 1s;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -ms-transition: all 1s;
+    -o-transition: all 1s;
+}
+section:hover   span{
+    display: inline-block;
+    transition: all 1.25s;
+    -webkit-transition: all 1.25s;
+    -moz-transition: all 1.25s;
+    -ms-transition: all 1.25s;
+    -o-transition: all 1.25s;
+}
 ul{
     padding:0
 }
 a{
     color:#fff;
     text-decoration: none;
-display: block;
+ display: block;
    width: 100%;
-    padding: 8px 15px;
-    margin: 15px 0;
+    padding: 8px 17px;
+    margin: 15px 2px;
 }
 
 a:hover, .active{

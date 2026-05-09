@@ -16,6 +16,7 @@ export class ResetPasswordComponent {
     authService=inject (AuthService)
     errorMsg=""
     emailStorage=localStorage.getItem('email')
+  showPassord:boolean=false
 
     fb= inject(FormBuilder)
 
@@ -43,6 +44,11 @@ export class ResetPasswordComponent {
          seed:new FormControl(null,Validators.required),
   }
 )
+
+toggleShowPassword(){
+this.showPassord=!this.showPassord
+}
+
 
   // confirmedPassowrd(s:AbstractControl){
   //      const password=s.get('password')?.value

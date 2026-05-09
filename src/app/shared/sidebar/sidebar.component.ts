@@ -33,27 +33,27 @@ list:Menu[]=[
   },
    {title:'Users',
     icon:'fa-solid fa-user-group fa-lg',
-    navLink:'/dashboard/admin', /*to be changed*/
+    navLink:'/dashboard/auth', /*to be changed*/
     isActive:this.is_Admin(),
   },
    {title:'Recipes',
     icon:'fa-solid fa-border-all fa-lg',
-    navLink:'/dashboard/admin', /*to be changed*/
+    navLink:'/dashboard/admin/recipes', /*to be changed*/
     isActive:this.is_Admin(),
   },
    {title:'user-Recipes',
     icon:'fa-solid fa-border-all fa-lg',
-    navLink:'/dashboard/home', /*to be changed*/
+    navLink:'/auth/', /*to be changed*/
     isActive:this.is_User(),
   },
    {title:'Categories',
     icon:'fa-regular fa-calendar fa-lg',
-    navLink:'/dashboard/admin', /*to be changed*/
+    navLink:'/auth/', /*to be changed*/
     isActive:this.is_Admin(),
   },
    {title:'Change Password',
     icon:'fa-solid fa-unlock fa-lg',
-    navLink:'/dashboard/admin', /*to be changed*/
+    navLink:'/auth/', /*to be changed*/
     isActive:this.is_Admin(),
   },
    {title:'Favorites',
@@ -61,11 +61,11 @@ list:Menu[]=[
     navLink:'/dashboard/admin', /*to be changed*/
     isActive:this.is_User(),
   },
-   {title:'Logout',
-    icon:'fa-solid fa-right-from-bracket fa-lg',
-    navLink:'/dashboard/admin', /*to be changed*/
-    isActive:true,
-  }
+  //  {title:'Logout',
+  //   icon:'fa-solid fa-right-from-bracket fa-lg',
+  //   navLink:'/dashboard/admin', /*to be changed*/
+  //   isActive:true,
+  // }
 ]
 
 logOut(){

@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class RegisterComponent {
   errorMsg: string = '';
+  showPassord:boolean=false
 
   toastr = inject(ToastrService);
   authService = inject(AuthService);
@@ -50,6 +51,10 @@ export class RegisterComponent {
       }
     }
   }
+
+  toggleShowPassword(){
+this.showPassord=!this.showPassord
+}
 
   onSubmit(data: FormGroup) {
     console.log(data.value);

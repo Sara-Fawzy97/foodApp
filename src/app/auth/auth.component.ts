@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AuthComponent {
  
+  showPassord:boolean=false
   errorMsg:string=''
   router=inject(Router)
   toastr=inject(ToastrService)
@@ -21,6 +22,9 @@ loginForm = new FormGroup({
   password: new FormControl(null,[Validators.required,Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)])
 })
 
+toggleShowPassword(){
+this.showPassord=!this.showPassord
+}
 
   // showSuccess() {
   //   this.toastr.success('Hello world!', 'Toastr fun!');
