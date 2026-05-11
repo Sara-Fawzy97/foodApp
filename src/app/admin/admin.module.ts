@@ -3,19 +3,24 @@ import { CommonModule } from '@angular/common';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
-import { RecipesAdminComponent } from './recipes-admin/recipes-admin.component';
-import { AddNewRecipesComponent } from './add-new-recipes/add-new-recipes.component';
+import { RecipesAdminComponent } from './components/recipes-admin/recipes-admin.component';
+import { AddNewRecipesComponent } from './components/add-new-recipes/add-new-recipes.component';
+import { ɵInternalFormsSharedModule } from "@angular/forms";
+import { UpdateRecipesComponent } from './components/update-recipes/update-recipes.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     AdminComponent,
     RecipesAdminComponent,
-    AddNewRecipesComponent
-  ],
+    AddNewRecipesComponent,
+    UpdateRecipesComponent,],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+       ReactiveFormsModule,
+    
   ]
 })
 export class AdminModule { }

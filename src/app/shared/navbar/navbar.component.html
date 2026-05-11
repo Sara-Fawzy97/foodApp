@@ -16,15 +16,19 @@
     </div>
       <div class=" col col-md-4">
         <div class="row text-end align-items-center">
-          <div class="col-md-9  dropdown-center">
+          <div class="col-md-9  dropdown-center avater">
             <button
               class="btn btn-secondary dropdown-toggle"
               type="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              <img src="../../../assets/images/profile-Img.png" alt="" />
+              <img *ngIf="!userStorage.imagePath" src="../../../assets/images/profile-Img.png" alt="" />
+              <img class="" *ngIf="userStorage.imagePath" src="{{imageBaseUrl}}{{userStorage.imagePath}}" alt="" />
               {{ userName }}
+              <!-- <ng-template #text> 
+                <div class="initialpic">{{userName?.substring(0,2)?.toUpperCase()}}</div>
+              </ng-template> -->
             </button>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">profile</a></li>

@@ -1,0 +1,79 @@
+<section>
+  <div class="row align-items-center">
+    <div class="col-8">
+      <h3>Show the<span> Recipes</span> !</h3>
+      <p>
+        you can now fill the meals easily using the table and form ,<br />
+        click here and sill it with the table !
+      </p>
+    </div>
+
+    <div class="col-4">
+      <div class="text-end">
+        <a routerLink="/dashboard/admin/recipes" class="btn btn-success"
+          >All Recipes <i class="fa-solid fa-arrow-right-long"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div>
+  <div>
+    <h5 class="mt-3">Add New Item</h5>
+  </div>
+  <form [formGroup]="addnewRecipeForm" (ngSubmit)="addnew(addnewRecipeForm)" class="w-75 text-center pt-4">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        formControlName="name"
+        class="form-control"
+        placeholder="Recipe Name"
+        aria-label="Recipe Name"
+        aria-describedby="basic-addon1"
+      />
+    </div>
+<!-- tags options--->
+    <select
+        formControlName="tagId"
+     class="form-select mb-3" aria-label="Default select example">
+      <option selected>Tag</option>
+      <option *ngFor="let tag of allTags " value="{{tag.id}}">{{tag.name}}</option>
+   
+    </select>
+
+    <div class="input-group mb-3">
+      <input
+        formControlName="price"
+        type="number"
+        class="form-control"
+        aria-label="Amount (to the nearest dollar)"
+      />
+      <span class="input-group-text">EGP</span>
+    </div>
+
+    <select class="  form-select mb-3"formControlName="categoriesIds"  aria-label="Default select example ">
+      <option selected>
+Category
+      </option>
+      <option *ngFor="let cat of categories" value="{{cat.id}}">{{cat.name}}</option>
+  
+    </select>
+    <div class="input-group mb-3">
+      <textarea class="form-control" formControlName="description" aria-label="With textarea" placeholder="Description *"></textarea>
+    </div>
+
+    <div class="input-group mb-3">
+      <input type="file" formControlName="recipeImage" class="form-control" id="inputGroupFile02" />
+      <label class="input-group-text" for="inputGroupFile02">Upload</label>
+    </div>
+  <p class="red-color">{{msgError}}</p>
+
+    <hr />
+
+    <div class="mt-5 float-end">
+      <a onclick="clearForm()" class="btn me-5 px-5">Cancle</a>
+      <button type="submit" class="btn btn-success">Save</button>
+    </div>
+  </form>
+</div>

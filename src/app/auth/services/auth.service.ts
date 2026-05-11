@@ -41,4 +41,8 @@ export class AuthService {
    verifyAccount(data:LoginData):Observable<any>{
     return this.http.put('Users/verify',data)
   }
+  // https://upskilling-egypt.com:3006/api/v1/Users/currentUser
+  getCurrentUser(){
+    return this.http.get('Users/currentUser')
+  }
 }

@@ -30,6 +30,21 @@ this.showPassord=!this.showPassord
   //   this.toastr.success('Hello world!', 'Toastr fun!');
   // }
 
+  user={}
+getCurrentUser(){
+  this.authService.getCurrentUser().subscribe({
+    next:(res)=>{
+      console.log(res)
+      localStorage.setItem("user",JSON.stringify(res))
+      // Object.keys(res).forEach(key=>{
+      // const value= res[key]
+      // localStorage.setItem(key,value)
+    // }
+    // )
+    }
+  })
+}
+
 onSubmit(data:FormGroup){
 
 this.authService.login(data.value).subscribe({
@@ -53,7 +68,7 @@ this.authService.login(data.value).subscribe({
     this.errorMsg=""
     this.toastr.success('You are logged in successfully!', 'Welcome Back');
        this.router.navigateByUrl('/dashboard');
-
+this.getCurrentUser()
 
   }
 })

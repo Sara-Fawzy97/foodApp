@@ -56,7 +56,7 @@
             placeholder="Password"
             aria-label="Password"
             aria-describedby="basic-addon1"
-          /><span (click)="toggleShowPassword()"><i class="fa-solid position-absolute end-0 pt-2" [class]="!showPassord? ' fa-eye':'fa-eye-slash'"></i></span>
+          /><span (click)="toggleShowPassword()"><i class="fa-solid position-absolute passEye" [class]="!showPassord? ' fa-eye':'fa-eye-slash'"></i></span>
         
         </div>
         <div  *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched">
@@ -111,7 +111,7 @@
             placeholder="Confirm-Password"
             aria-label="confirmPassword"
             aria-describedby="basic-addon1"
-          /><span (click)="toggleShowPassword()"><i class="fa-solid position-absolute end-0 pt-2" [class]="!showPassord? ' fa-eye':'fa-eye-slash'"></i></span>
+          /><span (click)="toggleShowPassword()"><i class="fa-solid position-absolute passEye" [class]="!showPassord? ' fa-eye':'fa-eye-slash'"></i></span>
           
         </div>
         <div  *ngIf="registerForm.get('confirmPassword')?.errors && registerForm.get('confirmPassword')?.touched">

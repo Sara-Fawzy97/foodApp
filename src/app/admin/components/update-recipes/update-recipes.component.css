@@ -1,0 +1,40 @@
+section {
+  background-color: #f0ffef;
+  color: #1f263e;
+  padding: 50px 20px;
+  margin-top: 20px;
+  border-radius: 16px;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  -ms-border-radius: 16px;
+  -o-border-radius: 16px;
+}
+
+.red-color{color:red}
+
+section span {
+  color: #009247;
+}
+
+
+.btn-success {
+  background-color: #009247;
+  color: #fff;
+  padding: 8px 27px;
+}
+div .btn:first-of-type{
+  border:1px solid #009247;
+}
+.btn:hover{
+opacity: .5;
+}
+
+div h5{
+    color:#D9D9D9
+}
+form{
+justify-self: center;
+}
+/* form */
+input ,select,textarea{ background-color: #F7F7F7;}
+

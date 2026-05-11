@@ -13,19 +13,28 @@ section {
 section span {
   color: #009247;
 }
-.bg-green {
-  color: #009247;
-}
 
-button {
+.red-color{color:red}
+
+
+.btn-success {
   background-color: #009247;
   color: #fff;
   padding: 8px 27px;
+}
+div .btn:first-of-type{
+  border:1px solid #009247;
+}
+.btn:hover{
+opacity: .5;
 }
 
 div h5{
     color:#D9D9D9
 }
 form{
-justify-self: center;}
+justify-self: center;
+}
+/* form */
+input ,select,textarea{ background-color: #F7F7F7;}
 

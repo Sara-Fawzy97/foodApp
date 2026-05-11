@@ -41,7 +41,7 @@ list:Menu[]=[
     navLink:'/dashboard/admin/recipes', /*to be changed*/
     isActive:this.is_Admin(),
   },
-   {title:'user-Recipes',
+   {title:'Recipes',
     icon:'fa-solid fa-border-all fa-lg',
     navLink:'/auth/', /*to be changed*/
     isActive:this.is_User(),
@@ -71,4 +71,6 @@ list:Menu[]=[
 logOut(){
   localStorage.clear()
 }
+
+
 }

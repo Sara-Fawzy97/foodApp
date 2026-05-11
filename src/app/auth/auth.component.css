@@ -59,5 +59,9 @@ justify-content: space-between;
     margin-top: 10px;
 }
 .app-primary-button:disabled{
-    background-color: #494949;
+    opacity: .7;
+}
+.passEye{
+    right:10px;
+    top:10px
 }

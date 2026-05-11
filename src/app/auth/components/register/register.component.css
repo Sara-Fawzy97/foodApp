@@ -61,5 +61,11 @@ justify-self:end ;
 }
 
 .app-primary-button:disabled{
-    background-color: #494949;
+    opacity: .7;
+}
+.passEye{
+    right:10px;
+    top:10px
+
+    /* padding-top:20px ; */
 }
