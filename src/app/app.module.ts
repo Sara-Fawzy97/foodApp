@@ -15,9 +15,7 @@ import { ɵInternalFormsSharedModule } from "@angular/forms";
 @NgModule({
   declarations: [
     AppComponent,
-  
     HomeComponent,
-      //  DeleteModalComponent
   ],
   imports: [
     BrowserModule,

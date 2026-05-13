@@ -5,7 +5,7 @@
   <div class="row align-items-center">
     <div class="col-md-8">
       <div>
-        <h1>Recipes <span>Items</span></h1>
+        <h1>Categories <span>Items</span></h1>
         <p>
           You can now add your items that any user can order it from the
           Application and you can edit
@@ -22,13 +22,13 @@
 <section>
   <div class="row align-items-center">
     <div class="col-8">
-      <h3>Recipe Table Details</h3>
+      <h3>Categories Table Details</h3>
       <p>You can check all details</p>
     </div>
 
     <div class="col-4">
       <div class="text-end">
-        <a routerLink="/dashboard/admin/recipes/add-recipe" class="btn btn-success">Add New Item</a>
+        <a routerLink="/dashboard/admin/recipes/add-recipe" class="btn btn-success">Add New Category</a>
       </div>
     </div>
   </div>
@@ -46,48 +46,27 @@
         aria-label="Text input with segmented dropdown button"
       />
     </div>
-    <div class="col col-md-2">
-      <select (change)="onTagChange($event)" class="form-select" aria-label="Default select example">
-        <option selected>Tag</option>
-        
-          <option value="{{item.id}}" *ngFor="let item of allTags; index as i">{{ item.name }}</option>
-       
-      </select>
-    </div>
-
-    <div class="col col-md-2">
-      <select (change)="onCategoryChange($event)" class="form-select" aria-label="Default select example">
-        <option selected>Category</option>
-        <option *ngFor="let cat of categories" value="{{cat.id}}">{{cat.name}}</option>
-       
-      </select>
-    </div>
   </div>
 </section>
 
-<!-- /***recipes table*/ -->
+<!-- /***categories table*/ -->
 
 <section>
   <table class="table table-striped">
     <thead>
       <tr class="table-secondary">
         <th scope="col">Item Name</th>
-        <th scope="col">Image</th>
-        <th scope="col">Price</th>
-        <th scope="col">Description</th>
-        <th scope="col">Tag</th>
-        <th scope="col">Category</th>
+        <th scope="col">Creation Date</th>
+        <th scope="col">Modification Date</th>
         <th> </th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of recipes">
+      <tr *ngFor="let item of categories">
         <th scope="row">{{item.name}}</th>
-        <td><img src="{{imageBaseUrl}}{{item.imagePath}}"></td>
-        <td>{{item.price}} EGP</td>
-        <td>{{item.description}}</td>
-        <td>{{item.tag.name}}</td>
-        <td><span *ngFor="let c of item.category ">{{c.name}},</span></td>
+        <!-- <td></td> -->
+        <td>{{item.creationDate}}</td>
+        <td>{{item.modificationDate}} </td>
         <td class="position-relative"><a><i class="fa-solid fa-ellipsis"></i>
         <ul class="position-absolute ">
           <li><i class="fa-regular fa-eye"></i> View</li>
@@ -104,7 +83,7 @@
 </section>
 </div>
  <!-- *ngIf="recipes.length==0" -->
-<div class="row" *ngIf="recipes.length==0" >
+<div class="row" *ngIf="categories.length==0" >
     <img class="w-auto m-auto" src="../../../assets/images/noData-img.png" alt="">
 
 </div>

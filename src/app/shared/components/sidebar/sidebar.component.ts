@@ -48,7 +48,7 @@ list:Menu[]=[
   },
    {title:'Categories',
     icon:'fa-regular fa-calendar fa-lg',
-    navLink:'/auth/', /*to be changed*/
+    navLink:'/dashboard/admin/categories',
     isActive:this.is_Admin(),
   },
    {title:'Change Password',

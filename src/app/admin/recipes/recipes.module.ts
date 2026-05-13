@@ -5,19 +5,18 @@ import { RecipesRoutingModule } from './recipes-routing.module';
 import { RecipesComponent } from './recipes.component';
 import { AddUpdateRecipesComponent } from './components/add-update-recipes/add-update-recipes.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { DeleteModalComponent } from '../../shared/components/delete-modal/delete-modal.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
   declarations: [
     RecipesComponent,
     AddUpdateRecipesComponent,
-    DeleteModalComponent
   ],
   imports: [
     CommonModule,
     RecipesRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,SharedModule
   ]
 })
 export class RecipesModule { }

@@ -14,7 +14,6 @@ export class DeleteModalComponent {
   
   @Input() isOpen:boolean=false;
 @Input() item:any;
-// @Input allRecipies:
 
 @Output() close =new EventEmitter();
 @Output() delete =new EventEmitter();
