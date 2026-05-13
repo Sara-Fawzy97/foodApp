@@ -1,0 +1,136 @@
+
+<div class="container-fluid">
+
+<section >
+  <div class="row align-items-center">
+    <div class="col-md-8">
+      <div>
+        <h1>Recipes <span>Items</span></h1>
+        <p>
+          You can now add your items that any user can order it from the
+          Application and you can edit
+        </p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <img src="../../../assets/images/admin-img.png" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="row align-items-center">
+    <div class="col-8">
+      <h3>Recipe Table Details</h3>
+      <p>You can check all details</p>
+    </div>
+
+    <div class="col-4">
+      <div class="text-end">
+        <a routerLink="/dashboard/admin/recipes/add-recipe" class="btn btn-success">Add New Item</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mb-4">
+  <div class="row">
+    <div class="col col-md-8  searchInput">
+        <i class="fa-brands fa-sistrix d-absolute top-2"></i>
+      <input
+      (change)="onsearchChange($event)"
+        type="text"
+        placeholder="Search here.."
+        class="form-control"
+        aria-label="Text input with segmented dropdown button"
+      />
+    </div>
+    <div class="col col-md-2">
+      <select (change)="onTagChange($event)" class="form-select" aria-label="Default select example">
+        <option selected>Tag</option>
+        
+          <option value="{{item.id}}" *ngFor="let item of allTags; index as i">{{ item.name }}</option>
+       
+      </select>
+    </div>
+
+    <div class="col col-md-2">
+      <select (change)="onCategoryChange($event)" class="form-select" aria-label="Default select example">
+        <option selected>Category</option>
+        <option *ngFor="let cat of categories" value="{{cat.id}}">{{cat.name}}</option>
+       
+      </select>
+    </div>
+  </div>
+</section>
+
+<!-- /***recipes table*/ -->
+
+<section>
+  <table class="table table-striped">
+    <thead>
+      <tr class="table-secondary">
+        <th scope="col">Item Name</th>
+        <th scope="col">Image</th>
+        <th scope="col">Price</th>
+        <th scope="col">Description</th>
+        <th scope="col">Tag</th>
+        <th scope="col">Category</th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of recipes">
+        <th scope="row">{{item.name}}</th>
+        <td><img src="{{imageBaseUrl}}{{item.imagePath}}"></td>
+        <td>{{item.price}} EGP</td>
+        <td>{{item.description}}</td>
+        <td>{{item.tag.name}}</td>
+        <td><span *ngFor="let c of item.category ">{{c.name}},</span></td>
+        <td class="position-relative"><a><i class="fa-solid fa-ellipsis"></i>
+        <ul class="position-absolute ">
+          <li><i class="fa-regular fa-eye"></i> View</li>
+          <li routerLink="/dashboard/admin/recipes/update/{{item.id}}"><i class="fa-regular fa-pen-to-square"></i> Edit</li>
+          <li   (click)="ismodalOpen(item)" > <i class="fa-regular fa-trash-can"></i> Delete</li>
+      
+       </ul></a></td>
+      
+      </tr>
+      
+    </tbody>
+  </table>
+<!-- <app-delete-modal>
+
+</app-delete-modal>  -->
+</section>
+</div>
+ <!-- *ngIf="recipes.length==0" -->
+<div class="row" *ngIf="recipes.length==0" >
+    <img class="w-auto m-auto" src="../../../assets/images/noData-img.png" alt="">
+
+</div>
+<!-----modal---->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+<div * class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+ <app-delete-modal  [isOpen]="isModalOpen" (close)='closeModal()' [item]="selectedItem" (delete)="deleteItem()">
+
+</app-delete-modal> 

@@ -8,14 +8,16 @@ import { GlobalInterceptor } from './core/interceptor/global.interceptor';
 import { HttpClientModule } from '@angular/common/http';
 import{ToastrModule} from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeComponent } from './shared/home/home.component';
+import { HomeComponent } from './shared/components/home/home.component';
 import { ɵInternalFormsSharedModule } from "@angular/forms";
+// import { DeleteModalComponent } from './shared/components/delete-modal/delete-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
   
-    HomeComponent
+    HomeComponent,
+      //  DeleteModalComponent
   ],
   imports: [
     BrowserModule,
