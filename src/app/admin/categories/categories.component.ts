@@ -8,7 +8,13 @@ import { CategoriesService } from './services/categories.service';
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.css'],
 })
-export class CategoriesComponent {
+export class CategoriesComponent {  
+   p: number = 1;
+  pageSize:number=10
+  categoriesNumbers:number=0
+  
+
+
   categoriesService = inject(CategoriesService);
   allTags: any[] = [];
   categories: any[] = [];
@@ -52,10 +58,12 @@ export class CategoriesComponent {
   }
 
   getCategories() {
-    this.categoriesService.getAllCategories().subscribe({
+    this.categoriesService.getAllCategories(this.pageSize,this.p).subscribe({
       next: (res) => {
         this.categories = res.data;
-        console.log(res.data);
+        // console.log(res);
+  this.categoriesNumbers=res.totalNumberOfRecords
+
       },
     });
   }
@@ -64,4 +72,11 @@ export class CategoriesComponent {
     this.name = event.target.value;
     this.getCategories();
   }
+
+    //pagination
+changePage(page:any){
+  this.p=page
+  this.getCategories()
+}
+  
 }

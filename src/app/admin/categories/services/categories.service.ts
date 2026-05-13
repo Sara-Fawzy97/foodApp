@@ -8,8 +8,8 @@ import { Observable } from 'rxjs';
 export class CategoriesService {
 
   constructor(private http:HttpClient) { }
-  getAllCategories():Observable<any>{
-    return this.http.get('Category/?pageSize=5&pageNumber=2')
+  getAllCategories(pSize:number,pnum:number):Observable<any>{
+    return this.http.get('Category/?pageSize='+pSize+'&pageNumber='+pnum)
   }
   
 }

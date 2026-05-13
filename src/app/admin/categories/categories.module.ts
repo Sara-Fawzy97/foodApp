@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CategoriesRoutingModule } from './categories-routing.module';
 import { CategoriesComponent } from './categories.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { NgxPaginationModule } from 'ngx-pagination';
 // import { DeleteModalComponent } from 'src/app/shared/components/delete-modal/delete-modal.component';
 
 
@@ -15,7 +16,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
   ],
   imports: [
     CommonModule,
-    CategoriesRoutingModule,SharedModule
+    CategoriesRoutingModule,SharedModule,
+    NgxPaginationModule
   ]
 })
 export class CategoriesModule { }

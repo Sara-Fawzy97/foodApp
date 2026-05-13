@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +14,11 @@ getAllTags():Observable<any>{
   return this.http.get('tag/')
 }
 // https://upskilling-egypt.com:3006/api/v1/Recipe/?tagId=2&categoryId=2&pageSize=1&pageNumber=10
-getAndFilterRecipes(name?:string,tagId?:number,catId?:number){
+getAndFilterRecipes(Psize:number,pNum:number,name?:string,tagId?:number,catId?:number){
   
   let params = new HttpParams()
-      // .set('pageSize', 10)
-      // .set('pageNumber', 1);
+      .set('pageSize', Psize)
+      .set('pageNumber', pNum);
 
          if (name) {
       params = params.set('name', name);
@@ -34,11 +34,7 @@ getAndFilterRecipes(name?:string,tagId?:number,catId?:number){
     return this.http.get("Recipe/",{params})
 }
 
-getRecipes():Observable<any>{
-  return this.http.get('Recipe/')
-}
-// https://upskilling-egypt.com:3006/api/v1/Category/?pageSize=5&pageNumber=1
-// https://upskilling-egypt.com:3006/api/v1/Category/?pageSize=0&pageNumber=0
+
 getAllCategories():Observable<any>{
   return this.http.get('Category/?pageSize=5&pageNumber=2')
 }
@@ -55,6 +51,16 @@ getOneRecipe(id:number):Observable<any>{
 updateRecipe(id:number,data:any){
   return this.http.put('Recipe/'+id,data)
 
+}
+
+getImage(imagePath:string){
+return this.http.get(imagePath,{responseType:'arraybuffer'}).pipe(
+        map(e=>{
+          return new File([e], imagePath);
+
+        })
+        )
+      ;
 }
 
 }

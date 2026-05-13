@@ -38,3 +38,6 @@ justify-self: center;
 /* form */
 input ,select,textarea{ background-color: #F7F7F7;}
 
+ngx-dropzone{
+  background-color: #f0ffef;
+}

@@ -15,6 +15,11 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class RecipesComponent {
  
+   p: number = 1;
+  pageSize:number=10
+  RecipesNumbers:number=0
+
+
   adminService= inject(RecipeServiceService)
   allTags:any[]=[]
   recipes:any[]=[]
@@ -94,42 +99,47 @@ export class RecipesComponent {
   name!:string;
   imageBaseUrl = 'https://upskilling-egypt.com:3006/';
   
+
+  //tag filter
     onTagChange(event:any){
       this.tagId=event.target.value
       this.getRecipes()
     }
-  
+
+  //category filter
     onCategoryChange(event:any){
       this.categoryId=event.target.value
       this.getRecipes()
   
-  
     }
+
+    //within search
     onsearchChange(event:any){
       this.name=event.target.value
       this.getRecipes()
   
   
     }
-  
-    recipeCat=[]
+
+
   getRecipes(){
-    this.adminService.getAndFilterRecipes(this.name,this.tagId,this.categoryId).subscribe({
+    this.adminService.getAndFilterRecipes(this.pageSize,this.p,this.name,this.tagId,this.categoryId).subscribe({
       next:(res:any)=>{
         this.recipes=res.data
       //  this.categories=res.data.categories
       // this.recipeCat=this.recipes.category
         console.log(this.recipes)
-  
+  this.RecipesNumbers=res.totalNumberOfRecords
       }
     })
   }
 
-  view:boolean=false
-
-  modalViewed(){
-    this.view=true
-  }
+  //pagination
+changePage(page:any){
+  this.p=page
+  this.getRecipes()
+}
+  
   }
   
 

@@ -62,11 +62,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of categories">
+      <tr *ngFor="let item of categories  | paginate: { itemsPerPage: pageSize, currentPage: p,totalItems: categoriesNumbers}">
         <th scope="row">{{item.name}}</th>
         <!-- <td></td> -->
-        <td>{{item.creationDate}}</td>
-        <td>{{item.modificationDate}} </td>
+        <td>{{item.creationDate |date:'short' }}</td>
+        <td>{{item.modificationDate |date:'short' }} </td>
         <td class="position-relative"><a><i class="fa-solid fa-ellipsis"></i>
         <ul class="position-absolute ">
           <li><i class="fa-regular fa-eye"></i> View</li>
@@ -79,6 +79,8 @@
       
     </tbody>
   </table>
+
+    <pagination-controls class="pagination" (pageChange)="changePage($event)"></pagination-controls>
 
 </section>
 </div>

@@ -6,6 +6,8 @@ import { RecipesComponent } from './recipes.component';
 import { AddUpdateRecipesComponent } from './components/add-update-recipes/add-update-recipes.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { NgxDropzoneModule } from 'ngx-dropzone';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     RecipesRoutingModule,
-    ReactiveFormsModule,SharedModule
+    ReactiveFormsModule,SharedModule,
+    NgxDropzoneModule,
+    NgxPaginationModule
   ]
 })
 export class RecipesModule { }

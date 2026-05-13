@@ -53,10 +53,21 @@
       <textarea class="form-control" formControlName="description" aria-label="With textarea" placeholder="Description *"></textarea>
     </div>
 
-    <div class="input-group mb-3">
-      <input type="file" formControlName="recipeImage" class="form-control" id="inputGroupFile02" />
-      <label class="input-group-text" for="inputGroupFile02">Upload</label>
-    </div>
+    <ngx-dropzone (change)="onSelect($event)">
+	<ngx-dropzone-label>Drag & Drop or Choose an Item Image To Upload <i class="fa-solid fa-arrow-up-from-bracket"></i></ngx-dropzone-label>
+
+   <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
+  <!-- <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>  -->
+
+</ngx-dropzone-image-preview>
+
+</ngx-dropzone>
+<!-- <img
+  *ngIf="files.length == 0 && apiImageSrc"
+  [src]="imageBaseUrl + apiImageSrc"
+  width="200"
+  class="rounded"> -->
+
   <p class="red-color">{{msgError}}</p>
 
     <hr />
