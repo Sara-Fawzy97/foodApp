@@ -18,20 +18,7 @@ mat-form-field{
 mat-label{
     color: #009247;
 }
-.mat-icon{
-    /* width:36px !important; */
-    /* height: 36px !important; */
-    border:1px solid #CC0000;
-    border-radius: 50% ;
-    -webkit-border-radius: 50% ;
-    -moz-border-radius: 50% ;
-    -ms-border-radius: 50% ;
-    -o-border-radius: 50% ;
-    /* padding: 3px; */
-    color: #CC0000 !important;
-    cursor: pointer;
-  
-}
+
 .mat-button, mat-raised-button{
     background-color: #009247 !important;
     color:#fff !important;

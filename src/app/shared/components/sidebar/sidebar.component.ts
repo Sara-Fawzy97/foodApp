@@ -33,7 +33,7 @@ list:Menu[]=[
   },
    {title:'Users',
     icon:'fa-solid fa-user-group fa-lg',
-    navLink:'/dashboard/auth', /*to be changed*/
+    navLink:'/dashboard/admin/users', /*to be changed*/
     isActive:this.is_Admin(),
   },
    {title:'Recipes',
