@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -8,8 +8,22 @@ import { Observable } from 'rxjs';
 export class CategoriesService {
 
   constructor(private http:HttpClient) { }
-  getAllCategories(pSize:number,pnum:number):Observable<any>{
-    return this.http.get('Category/?pageSize='+pSize+'&pageNumber='+pnum)
+
+  getAllCategories(pSize:number,pnum:number,name?:string):Observable<any>{
+    // return this.http.get('Category/?'+'name='+name+'&pageSize='+pSize+'&pageNumber='+pnum)
+   let params = new HttpParams()
+    .set('pageSize', pSize)
+      .set('pageNumber', pnum);
+
+      if(name){
+        params=params.set('name',name)
+      }
+    
+    return this.http.get('Category/?',{params})
   }
-  
+
+addNewCategory(data:string){
+   return this.http.post('Category/',{  name:data})
+}
+
 }

@@ -28,8 +28,8 @@ section:nth-child(2) {
 section:nth-child(2) {
 color:#323C47}
 
-button {
-  background-color: #009247;
+button{
+  background-color: #009247 !important;
   color: #fff;
   padding: 8px 27px;
 }

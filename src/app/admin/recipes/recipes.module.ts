@@ -18,7 +18,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
   imports: [
     CommonModule,
     RecipesRoutingModule,
-    ReactiveFormsModule,SharedModule,
+    ReactiveFormsModule,
+    SharedModule,
     NgxDropzoneModule,
     NgxPaginationModule
   ]

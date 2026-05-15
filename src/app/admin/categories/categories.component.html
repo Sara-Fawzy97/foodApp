@@ -28,7 +28,10 @@
 
     <div class="col-4">
       <div class="text-end">
-        <a routerLink="/dashboard/admin/recipes/add-recipe" class="btn btn-success">Add New Category</a>
+        <a mat-raised-button (click)="openDialog()" class="btn btn-success">Add New Category</a>
+          <p *ngIf="name">
+    You chose: <em>{{name}}</em>
+  <p>
       </div>
     </div>
   </div>
