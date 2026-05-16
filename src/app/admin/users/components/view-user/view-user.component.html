@@ -1,1 +1,26 @@
-<p>view-user works!</p>
+
+<section class="container p-4">
+
+<div  class="d-flex justify-content-between align-items-center">
+  <h2 class="h2"><span class="text-success"> {{data.name}} </span> Details</h2>
+   <a>
+    <mat-icon (click)="onNoClick()" class=" text-center align-items-center" aria-hidden="false" aria-label="Example close icon" fontIcon="close"></mat-icon>
+   </a>
+    
+</div>  
+
+
+<mat-dialog-content>
+    <div class="text-center mb-3">
+  <img *ngIf="data.imagePath" class="w-50 mb-2  rounded shadow" src="{{baseImgURL}}{{data.imagePath}}" alt="">
+              <img *ngIf="!data.imagePath" class="w-50 mb-2  rounded shadow" src="../../../assets/images/profile-Img.png" alt="" />
+
+  <h3 class="text-success">{{data.group}}</h3>
+    </div>
+  <h3>Phone Number: <span>{{data.phone}}</span></h3>
+  <h3>Country: <span>{{data.country}}</span></h3>
+</mat-dialog-content>
+<mat-dialog-actions class="justify-self-end">
+  <button class="mat-button " mat-button mat-dialog-close >Okay</button>
+</mat-dialog-actions>
+</section>

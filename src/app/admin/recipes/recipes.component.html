@@ -91,7 +91,7 @@
         <td><span *ngFor="let c of item.category ">{{c.name}},</span></td>
         <td class="position-relative"><a><i class="fa-solid fa-ellipsis"></i>
         <ul class="position-absolute ">
-          <li><i class="fa-regular fa-eye"></i> View</li>
+          <li (click)="openDialog(item)"><i class="fa-regular fa-eye"></i> View</li>
           <li routerLink="/dashboard/admin/recipes/update/{{item.id}}"><i class="fa-regular fa-pen-to-square"></i> Edit</li>
           <li   (click)="ismodalOpen(item)" > <i class="fa-regular fa-trash-can"></i> Delete</li>
       
@@ -112,7 +112,7 @@
 
 
 <!----- delete modal---->
- <app-delete-modal  [isOpen]="isModalOpen" (close)='closeModal()' [item]="selectedItem.userName" (delete)="deleteItem()">
+ <app-delete-modal  [isOpen]="isModalOpen" (close)='closeModal()' [item]="selectedItem" (delete)="deleteItem()">
 
 </app-delete-modal> 
 

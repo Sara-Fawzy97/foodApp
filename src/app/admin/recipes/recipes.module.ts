@@ -8,12 +8,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ViewRecipeComponent } from './components/view-recipe/view-recipe.component';
 
 
 @NgModule({
   declarations: [
     RecipesComponent,
     AddUpdateRecipesComponent,
+    ViewRecipeComponent,
   ],
   imports: [
     CommonModule,

@@ -31,7 +31,7 @@ export class UsersComponent implements AfterViewInit {
   totalNumberOfRecords=916
   pageSize!:number
   pageSizeOptions=[5, 10, 25, 100]
-  pageIndex=0
+  pageIndex=1
  pageEvent: PageEvent | undefined;
   sharedService=inject(SharedService)
         toastr = inject(ToastrService);
@@ -110,12 +110,35 @@ handlePageEvent(e: PageEvent) {
 
   constructor(public dialog: MatDialog) {}
 
+   selectedElement!:any
+
+   selectItem(row:any){
+    this.selectedElement=row
+    console.log(this.selectedElement)
+   }
+   
   openDialog() {
-    const dialogRef = this.dialog.open(ViewUserComponent, {restoreFocus: false});
+      // this.menuTrigger.closeMenu();
+    const dialogRef = this.dialog.open(ViewUserComponent, {
+    
+      data :{
+        id:this.selectedElement.id,
+        name:this.selectedElement.userName,
+        imagePath:this.selectedElement.imagePath,
+        country:this.selectedElement.country,
+        phone:this.selectedElement.phoneNumber,
+        email:this.selectedElement.email,
+        group:this.selectedElement.group.name
+
+    },restoreFocus: false});
 
     // Manually restore focus to the menu trigger since the element that
+
+
+
     // opens the dialog won't be in the DOM any more when the dialog closes.
     dialogRef.afterClosed().subscribe(() => this.menuTrigger.focus());
   }
+  
 }
 

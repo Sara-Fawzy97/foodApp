@@ -29,4 +29,8 @@ export class UsersService {
       return this.http.get("Users/",{params})
   }
   
+  getUserByID(id:any){
+    return this.http.get('Users/',id)
+  }
+
 }

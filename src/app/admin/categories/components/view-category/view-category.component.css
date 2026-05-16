@@ -1,3 +1,8 @@
+img:last-of-type{
+    width:50px
+
+}
+
 section .mat-icon{
     width:30px !important;
     height: 30px !important;
@@ -14,4 +19,8 @@ section .mat-icon{
 
 h3{
     font-weight: 500;
+}
+
+h3{
+    margin:0;
 }

@@ -26,4 +26,12 @@ addNewCategory(data:string){
    return this.http.post('Category/',{  name:data})
 }
 
+getRecipeByID(id:any){
+ return this.http.get('Category/'+id)
+}
+
+updateCategory(id:any,data:any){
+  return this.http.put('Category/'+id,{  name:data})
+}
+
 }

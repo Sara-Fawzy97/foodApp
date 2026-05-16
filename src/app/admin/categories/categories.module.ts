@@ -6,6 +6,7 @@ import { CategoriesComponent } from './categories.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AddUpdateCategoryComponent } from './components/add-update-category/add-update-category.component';
+import { ViewCategoryComponent } from './components/view-category/view-category.component';
 // import { DeleteModalComponent } from 'src/app/shared/components/delete-modal/delete-modal.component';
 
 
@@ -13,6 +14,7 @@ import { AddUpdateCategoryComponent } from './components/add-update-category/add
   declarations: [
     CategoriesComponent,
     AddUpdateCategoryComponent,
+    ViewCategoryComponent,
     // DeleteModalComponent
 
   ],

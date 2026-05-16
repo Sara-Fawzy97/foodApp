@@ -1,11 +1,14 @@
 
-  import { Component, inject } from '@angular/core';
+  import { Component, inject, ViewChild } from '@angular/core';
   import { AdminRoutingModule } from '../admin-routing.module';
   // import { AdminService } from '../services/admin.service';
 import { RecipeServiceService } from './services/recipe-service.service';
 import { DeleteModalComponent } from 'src/app/shared/components/delete-modal/delete-modal.component';
 import { SharedService } from 'src/app/shared/services/shared.service';
 import { ToastrService } from 'ngx-toastr';
+import { MatMenuTrigger } from '@angular/material/menu';
+import { MatDialog } from '@angular/material/dialog';
+import { ViewRecipeComponent } from './components/view-recipe/view-recipe.component';
 
 
 @Component({
@@ -77,13 +80,7 @@ export class RecipesComponent {
    })
   }
   
-  // getCategories(){
-  //   this.adminService.getAllCategories().subscribe({
-  //     next:(res:any)=>{
-  //        console.log(res)
-  //     }
-  //   })
-  // }
+ 
    getCategories(){
       this.adminService.getAllCategories().subscribe({
         next:(res)=>{
@@ -139,7 +136,33 @@ changePage(page:any){
   this.p=page
   this.getRecipes()
 }
+  @ViewChild('menuTrigger') menuTrigger!: MatMenuTrigger;
   
+    constructor(public dialog: MatDialog) {}
+  
+
+  openDialog(item:any) {
+  this.selectedItem=item
+
+      // this.menuTrigger.closeMenu();
+    const dialogRef = this.dialog.open(ViewRecipeComponent, {
+  width: '600px',
+    
+      data :{
+        id:this.selectedItem.id,
+        name:this.selectedItem.name,
+        imagePath:this.selectedItem.imagePath,
+        description:this.selectedItem.description,
+        tagId:this.selectedItem.tag,
+        categoriesIds:this.selectedItem.category,
+        price:this.selectedItem.price
+
+    },restoreFocus: false});
+
+    // Manually restore focus to the menu trigger since the element that
+    // opens the dialog won't be in the DOM any more when the dialog closes.
+    dialogRef.afterClosed().subscribe(() => this.menuTrigger.focus());
+  }
   }
   
 

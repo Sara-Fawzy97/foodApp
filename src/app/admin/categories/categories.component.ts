@@ -1,9 +1,13 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ViewChild } from '@angular/core';
 import { SharedService } from 'src/app/shared/services/shared.service';
 import { ToastrService } from 'ngx-toastr';
 import { CategoriesService } from './services/categories.service';
 import { AddUpdateCategoryComponent } from './components/add-update-category/add-update-category.component';
 import { MatDialog } from '@angular/material/dialog';
+import { ViewCategoryComponent } from './components/view-category/view-category.component';
+import { MatMenuTrigger } from '@angular/material/menu';
+import { tick } from '@angular/core/testing';
+import { IRecipe } from '../recipes/models/IRecipe';
 
 export interface DialogData {
   name: string;
@@ -90,7 +94,7 @@ export class CategoriesComponent {
 
   constructor(public dialog: MatDialog) {}
 
-  openDialog(): void {
+  openAddDialog(): void {
     const dialogRef = this.dialog.open(AddUpdateCategoryComponent, {
       data: {name: this.name},
         panelClass:'custom-dialog-container'
@@ -102,6 +106,63 @@ export class CategoriesComponent {
     });
   }
 
+ @ViewChild('menuTrigger') menuTrigger!: MatMenuTrigger;
+  
+    // constructor(public dialog: MatDialog) {}
+  
+recipes:IRecipe[]=[]
+
+  openViewDialog(item:any) {
+  // this.selectedItem=item
+   this.getOneRecipe(item.id)
+      // this.menuTrigger.closeMenu();
+   
+    // Manually restore focus to the menu trigger since the element that
+    // opens the dialog won't be in the DOM any more when the dialog closes.
+    // dialogRef.afterClosed().subscribe(() => this.menuTrigger.focus());
+  }
+
+  getOneRecipe(id:any){
+    this.categoriesService.getRecipeByID(id).subscribe({
+      next:(res:any)=>{
+        console.log(res.recipe)
+        // this.selectedItem.recipe=res.recipe
+        // // this.recipes=res.recipe
+        // console.log(this.selectedItem.recipe)
+
+         const dialogRef = this.dialog.open(ViewCategoryComponent, {
+  width: '600px',
+    
+      data :{
+        id:res.id,
+        name:res.name,
+        recipe:res.recipe
+      
+
+    },restoreFocus: false});
+
+      }
+    })
+  }
+
+  
+  openUpdateDialog(item:any){
+   
+  const dialogRef = this.dialog.open(AddUpdateCategoryComponent, {
+      data: {id:item.id, name:item.name},
+        panelClass:'custom-dialog-container'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+  if(result){
+
+    this.getCategories();
+
+  }
+      // this.getCategories()
+    });
 }
 
+}
 
